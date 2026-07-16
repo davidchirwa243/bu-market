@@ -27,24 +27,28 @@
 
     <!-- Active Listings -->
     <div class="col-6 col-lg-4">
-        <div class="card border-0 shadow-sm p-4 h-100 bg-white">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="text-muted fw-bold">Active Listings</span>
-                <i class="bi bi-check-circle-fill text-success fs-2"></i>
+        <a href="{% url 'core:browse' %}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-4 h-100 bg-white" style="transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted fw-bold">Active Listings</span>
+                    <i class="bi bi-check-circle-fill text-success fs-2"></i>
+                </div>
+                <h2 class="fw-bold mb-0">{{ active_listings }}</h2>
             </div>
-            <h2 class="fw-bold mb-0">{{ active_listings }}</h2>
-        </div>
+        </a>
     </div>
 
     <!-- Pending Moderation -->
     <div class="col-6 col-lg-4">
-        <div class="card border-0 shadow-sm p-4 h-100 bg-white">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="text-muted fw-bold">Pending Review</span>
-                <i class="bi bi-clock-history text-warning fs-2"></i>
+        <a href="{% url 'dashboard:moderator_dashboard' %}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-4 h-100 bg-white" style="transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted fw-bold">Pending Review</span>
+                    <i class="bi bi-clock-history text-warning fs-2"></i>
+                </div>
+                <h2 class="fw-bold mb-0">{{ pending_listings }}</h2>
             </div>
-            <h2 class="fw-bold mb-0">{{ pending_listings }}</h2>
-        </div>
+        </a>
     </div>
 
     <!-- Total Sellers -->
@@ -71,13 +75,15 @@
 
     <!-- Pending Payments -->
     <div class="col-6 col-lg-4">
-        <div class="card border-0 shadow-sm p-4 h-100 bg-white">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="text-muted fw-bold">Pending Payments</span>
-                <i class="bi bi-credit-card-2-front text-danger fs-2"></i>
+        <a href="{% url 'dashboard:accountant_dashboard' %}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm p-4 h-100 bg-white" style="transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted fw-bold">Pending Payments</span>
+                    <i class="bi bi-credit-card-2-front text-danger fs-2"></i>
+                </div>
+                <h2 class="fw-bold mb-0">{{ pending_payments }}</h2>
             </div>
-            <h2 class="fw-bold mb-0">{{ pending_payments }}</h2>
-        </div>
+        </a>
     </div>
 </div>
 

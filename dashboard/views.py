@@ -42,6 +42,11 @@ def seller_dashboard(request):
     user = request.user
     listings = Listing.objects.filter(seller=user).order_by('-created_at')
     
+    # Calculate counts and sums
+    from django.db.models import Sum
+    active_listings_count = listings.filter(status=Listing.Status.ACTIVE).count()
+    total_views = listings.aggregate(Sum('views_count'))['views_count__sum'] or 0
+    
     # Active subscription check
     active_sub = user.active_subscription
     
@@ -50,11 +55,14 @@ def seller_dashboard(request):
     
     context = {
         'listings': listings,
+        'active_listings_count': active_listings_count,
+        'total_views': total_views,
         'active_sub': active_sub,
         'history': history,
         'plans': SubscriptionPlan.objects.all(),
     }
     return render(request, 'dashboard/seller_dashboard.html', context)
+
 
 
 @login_required

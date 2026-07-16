@@ -78,8 +78,7 @@
                     <div class="p-3 bg-light rounded">
                         <small class="text-muted d-block">Active</small>
                         <span class="fw-bold fs-3 text-success">
-                            {{ listings|dictsortreversed:"status"|length }}
-                            {# Custom count in templates is simpler via dynamic looping #}
+                            {{ active_listings_count }}
                         </span>
                     </div>
                 </div>
@@ -87,9 +86,7 @@
                     <div class="p-3 bg-light rounded">
                         <small class="text-muted d-block">Store Views</small>
                         <span class="fw-bold fs-3 text-info">
-                            {% temp_view_counter %}{# placeholder #}
-                            {% block val %}{% endblock %}
-                            {{ listings|regroup:"views_count"|length }}
+                            {{ total_views }}
                         </span>
                     </div>
                 </div>
